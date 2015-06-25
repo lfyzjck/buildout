@@ -1,11 +1,13 @@
 require 'formula'
 
-class zhihu_buildout < Formula
+class ZhihuBuildout < Formula
     homepage 'https://github.com/lfyzjck/buildout'
-    head 'https://github.com/lfyzjck/buildout'
+    head 'https://github.com/lfyzjck/buildout', :using => :git
 
     def install
-        system 'make install'
+        bin.install "bin/buildout"
+        prefix.install "./eggs/zc.buildout-2.3.1-py2.7.egg"
+        prefix.install "eggs/setuptools-17.1.1-py2.7.egg"
     end
 
 end
